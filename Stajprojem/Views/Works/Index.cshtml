@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Stajprojem.Models.Works>
+
+
+<h2>Works</h2>
+
+     @if ((Session["CurrentUser"] as Users)?.Missions.Code == 5050)
+      { 
+      <p>
+          @Html.ActionLink("New Work", "Create")
+     </p>
+      }
+<table class="table" >
+    <tr style="color:Highlight">
+        <th for="MyProperty">Work Name
+        </th>
+        <th for="MyProperty">Start Date
+        </th>
+        <th for="MyProperty">End Date
+        </th>
+        <th for="MyProperty">Statu
+        </th>
+        <th></th>
+    </trstyle="color:Highlight">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+       
+        <td>
+            @if (item.Status == "A")
+            {
+                @Html.Raw("Aktif")
+            }
+            else
+            {
+                @Html.Raw("Pasif")
+            }
+        </td>
+        <td>
+   
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+        
+            @Html.ActionLink("Details", "Details", new { id = item.Id })
+
+     @if ((Session["CurrentUser"] as Users)?.Missions.Code == 5050)
+     {
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+     }
+
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,30 @@
+﻿@model Stajprojem.Models.Departments
+
+<h2>Delete</h2>
+
+<h5>Are you sure you want to delete this?</h5>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="color:Highlight">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2">
+                <input type="submit" value="Delete" style="background-color:#428bca" class="btn btn-success btn-block" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    }
+        </div>

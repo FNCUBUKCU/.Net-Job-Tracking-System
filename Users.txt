@@ -1,0 +1,8 @@
+project manager 
+kerimkestel@gmail.com   password:12345678
+
+directors
+aysekalyan@gmail.com    password:1234
+emreyilmaz@gmail.com   password:1234
+tubaatmaca@gmail.com   password:1234
+sematemiz@gmail.com    password:1234

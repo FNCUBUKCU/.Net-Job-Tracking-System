@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Stajprojem.Models.Departments>
+
+<h2>Departments</h2>
+@if ((Session["CurrentUser"] as Users)?.Missions.Code == 5050)
+{
+<p>
+    @Html.ActionLink("New Department", "Create")
+</p>
+}
+<table class="table">
+    <tr>
+        <th style="color:#428bca">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+@if ((Session["CurrentUser"] as Users)?.Missions.Code == 5050)
+{
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+}
+    </tr>
+}
+
+</table>

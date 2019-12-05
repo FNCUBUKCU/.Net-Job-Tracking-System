@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0a7b21d24db242dd92f275c0babc389e" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="otomasyonModel.Activities" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="otomasyonModel.Departments" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="otomasyonModel.Messages" Width="1.5" PointX="3" PointY="8" />
+        <EntityTypeShape EntityType="otomasyonModel.Missions" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="otomasyonModel.Users" Width="1.5" PointX="3" PointY="2.875" />
+        <EntityTypeShape EntityType="otomasyonModel.UserWorks" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="otomasyonModel.Works" Width="1.5" PointX="5.375" PointY="8" />
+        <AssociationConnector Association="otomasyonModel.FK__Users__Activitie__236943A5" />
+        <AssociationConnector Association="otomasyonModel.FK__Users__Departmen__2180FB33" />
+        <AssociationConnector Association="otomasyonModel.FK_Messages_Users" />
+        <AssociationConnector Association="otomasyonModel.FK_Messages_Users2" />
+        <AssociationConnector Association="otomasyonModel.FK__Users__MissionId__22751F6C" />
+        <AssociationConnector Association="otomasyonModel.FK__UserWorks__Users__208CD6FA" />
+        <AssociationConnector Association="otomasyonModel.FK__UserWorks__Works__628FA481" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

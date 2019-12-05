@@ -1,0 +1,112 @@
+﻿@model Users
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+     
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <label for="MyProperty" style="color:Highlight">Name</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <label for="MyProperty"style="color:Highlight">Last Name</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" } })
+                @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <label for="MyProperty"style="color:Highlight">Email Adress</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <label for="MyProperty"style="color:Highlight">Password</label>
+        <div class="form-group"> 
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <label for="MyProperty" style="color:Highlight" >Phone Number</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <label for="MyProperty" style="color:Highlight">Department Name</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.DropDownList("DepartmentId", null,"--Please Select--", htmlAttributes: new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" })
+                @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <label for="MyProperty" style="color:Highlight">Mission Name</label>
+        <div class="form-group">
+           <div class="col-md-10">
+                @Html.DropDownList("MissionId", null,"--Please Select--", htmlAttributes: new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" })
+                @Html.ValidationMessageFor(model => model.MissionId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <label for="MyProperty" style="color:Highlight">Activitie Name</label>
+        <div class="form-group">
+          <div class="col-md-10">
+              @Html.DropDownList("ActivitieId", null, "--Please Select--", htmlAttributes: new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" })
+              @Html.ValidationMessageFor(model => model.ActivitieId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <label for="MyProperty" style="color:Highlight">Statu</label>
+        <div class="form-group">
+            <div class="col-md-10" >
+               
+                @{  
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Active",
+                        Value = "A"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Passive",
+                        Value = "P",
+                    });
+
+                }
+
+                @Html.DropDownListFor(model => model.Status, listItems,  "-- Select Status --" , htmlAttributes: new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" })
+            </div>
+        </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-2">
+                   <input type="submit" value="SAVE" style="background-color:#428bca" class="btn btn-success btn-block" />
+                  
+                </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

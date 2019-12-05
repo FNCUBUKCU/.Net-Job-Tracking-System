@@ -1,0 +1,35 @@
+﻿@model Stajprojem.Models.Messages
+
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt for="MyProperty" style="color:Highlight">
+          Receiver Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => Model.ReceiverUser.Name)
+        </dd>
+
+        <dt for="MyProperty" style="color:Highlight">
+            Sender Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => Model.SenderUser.Name)
+        </dd>
+
+        <dt for="MyProperty"style="color:Highlight"> 
+              Send Time   
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => Model.SendTime)
+        </dd>
+
+        <dt for="MyProperty" style="color:Highlight">
+            Message
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => Model.Message)
+        </dd>
+    </dl>
+  

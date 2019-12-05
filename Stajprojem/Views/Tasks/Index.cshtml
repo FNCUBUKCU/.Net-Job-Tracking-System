@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Stajprojem.Models.UserWorks>
+
+
+<h2>Task Chart</h2>
+
+
+    <table class="table" >
+        <tr style="color:Highlight">
+            <th for="MyProperty">
+                Work Name
+            </th>
+            <th for="MyProperty">
+                Start Date
+            </th>
+            <th for="MyProperty">
+                End Date
+            </th>
+            <th for="MyProperty">
+                Actual Effort
+            </th>
+            <th for="MyProperty">
+                Status
+            </th>
+
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Works.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualEffort)
+            </td>
+         
+            <td>
+                @if (item.Status == "A")
+                {
+                    @Html.Raw("Aktif")
+                }
+                else
+                {
+                    @Html.Raw("Pasif")
+                }
+            </td>
+          
+          
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) 
+          
+            </td>
+        </tr>
+    }
+    
+    </table>

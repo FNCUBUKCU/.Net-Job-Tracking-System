@@ -1,0 +1,78 @@
+﻿@model Stajprojem.Models.UserWorks
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal" >
+
+        <dt for="MyProperty" style="color:Highlight">User Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Users.Name)
+            @Html.DisplayFor(model => model.Users.Lastname)
+        </dd>
+
+        <dt for="MyProperty"style="color:Highlight">
+            Work Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Works.Name)
+        </dd>
+
+       
+        <dt for="MyProperty"style="color:Highlight">Start Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt for="MyProperty"style="color:Highlight">End Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt for="MyProperty" style="color:Highlight">
+            Created Time
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedTime)
+        </dd>
+        <dt for="MyProperty" style="color:Highlight">
+            Last Update Time
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateTime)
+        </dd>
+
+        <dt for="MyProperty"style="color:Highlight">Actual Effort
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualEffort)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateExplanation)
+        </dd>
+
+        <dt for="MyProperty"style="color:Highlight">Statu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

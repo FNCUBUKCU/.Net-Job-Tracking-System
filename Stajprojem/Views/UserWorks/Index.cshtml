@@ -1,0 +1,76 @@
+﻿@model IEnumerable<UserWorks>
+
+<h2>Job Tracking Dashboard</h2>
+
+    <p>
+        @Html.ActionLink("New Job Assigment", "Create")
+    </p>
+
+    <table class="table">
+        <tr style="color:Highlight">
+            <th>
+                <label for="MyProperty">User Name</label>
+            </th>
+            <th>
+                <label for="MyProperty">Work Name</label>
+            </th>
+            <th>
+                <label for="MyProperty">Start Date</label>
+            </th>
+            <th>
+                <label for="MyProperty">End Date</label>
+            </th>
+
+            <th>
+                <label for="MyProperty">Actual Effort</label>
+            </th>
+            <th>
+                <label for="MyProperty">Status</label>
+            </th>
+       
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.Name)
+                @Html.DisplayFor(modelItem => item.Users.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Works.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualEffort)
+            </td>
+
+            <td>
+
+                @if (item.Status == "A")
+                {
+                    @Html.Raw("Aktif")
+                }
+                else
+                {
+                    @Html.Raw("Pasif")
+                }
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) 
+                
+            </td>
+        </tr>
+    }
+    
+    </table>

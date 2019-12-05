@@ -1,0 +1,35 @@
+﻿@model Stajprojem.Models.Departments
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        <label for="MyProperty"style="color:Highlight">Department Name</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       <div class="form-group"style="color:Highlight">
+            <div class="col-md-offset-2 col-md-2">
+                <input type="submit" value="Create" style="background-color:#428bca"  class="btn btn-success btn-block" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

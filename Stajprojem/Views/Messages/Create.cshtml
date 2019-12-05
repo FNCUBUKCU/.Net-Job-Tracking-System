@@ -1,0 +1,41 @@
+﻿@model Stajprojem.Models.Messages
+
+        <meta name="viewport" content="width=device-width" />
+
+        <h2>Your New Message</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <label for="MyProperty" style="color:Highlight">Receiver</label>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        @Html.DropDownList("ReceiverId", null, htmlAttributes: new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" })
+                        @Html.ValidationMessageFor(model => model.ReceiverId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <label for="MyProperty" style="color:Highlight">Message</label>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @cols = "100", @rows = "8", @style = "width: 100%;" })
+                        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <div class="col-md-offset-2 col-md-2">
+                        <input type="submit" value="SEND" style="background-color:#428bca" class="btn btn-success btn-block" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

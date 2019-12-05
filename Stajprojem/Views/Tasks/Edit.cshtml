@@ -1,0 +1,129 @@
+﻿@model Stajprojem.Models.UserWorks
+
+<h2>Edit</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+         
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <label for="MyProperty" style="color:Highlight">User Name</label>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("UsersId", null, htmlAttributes: new { @readonly= "readonly", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UsersId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <label for="MyProperty"style="color:Highlight">Work Name</label>
+            <div class="form-group">
+               <div class="col-md-10">
+                    @Html.DropDownList("WorksId", null, htmlAttributes: new { @readonly= "readonly", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.WorksId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <label for="MyProperty" style="color:Highlight">Start Date</label>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.StartDate, new { @readonly= "readonly", @class = "form-control"})
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+      
+                </div>
+            </div>
+            <label for="MyProperty" style="color:Highlight">End Date</label>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.EndDate, new { @readonly= "readonly", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <label for="MyProperty" style="color:Highlight">Actual Effort</label>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.ActualEffort, new { @readonly= "readonly", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ActualEffort, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <label for="MyProperty" style="color:Highlight">CreatedTime</label>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CreatedTime, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @readonly= "readonly", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedTime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <label for="MyProperty" style="color:Highlight">Last Update Time</label>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastUpdateTime, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @readonly= "readonly", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastUpdateTime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <label for="MyProperty" style="color:Highlight">Assigned Effort</label>            
+            <div class="form-group">
+               <div class="col-md-10">
+                    @Html.EditorFor(model => model.AssignedEffort, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AssignedEffort, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <label for="MyProperty" style="color:Highlight">Remaining Effort</label>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RemainingEfort, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RemainingEfort, "", new { @class = "text-danger" })
+                </div>
+            </div>
+           
+            <label for="MyProperty" style="color:Highlight">Update Explanation</label>
+            <div class="form-group">
+                 <div class="col-md-10">
+                    @Html.EditorFor(model => model.UpdateExplanation, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UpdateExplanation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <label for="MyProperty" style="color:Highlight">Statu</label>
+            <div class="form-group">
+                <div class="col-md-10">
+
+
+                    @{
+                        List<SelectListItem> listItems = new List<SelectListItem>();
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Active",
+                            Value = "A"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Passive",
+                            Value = "P",
+                        });
+
+                    }
+
+                    @Html.DropDownListFor(model => model.Status, listItems, "-- Select Status --", htmlAttributes: new { @class = "form-control", @cols = "100", @rows = "1", @style = "width: 50%;" })
+
+
+                </div>
+            </div>
+    
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-2">
+                        <input type="button" value="SAVE" style="background-color:#428bca" class="btn btn-success btn-block" />
+                       
+                    </div>
+           
+                </div>
+            </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
